@@ -1,0 +1,7 @@
+---
+- name: Internet | install sysinternet softutils
+  apt:
+    name:
+    - chromium
+    - deluge
+    state: present

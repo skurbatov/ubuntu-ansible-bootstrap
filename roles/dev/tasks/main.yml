@@ -1,0 +1,19 @@
+---
+- name: Dev | install dev tools
+  apt:
+    name:
+    - strace
+    - python3-virtualenv
+    state: latest
+
+- name: Dev | CFSSL
+  include: cfssl.yml
+  tags: [cfssl]
+
+- name: Dev | git config
+  include: git.yml
+  tags: [git]
+
+- name: Dev | goss
+  include: goss.yml
+  tags: [goss]

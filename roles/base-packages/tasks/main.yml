@@ -1,0 +1,9 @@
+---
+- name:
+  include: base.yml
+
+- name:
+  include: networking.yml
+
+- name:
+  include: internet.yml

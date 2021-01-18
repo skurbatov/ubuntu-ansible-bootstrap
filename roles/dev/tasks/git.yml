@@ -1,0 +1,47 @@
+---
+- name: Git | Create global .gitignore
+  become: false
+  copy:
+    content: |
+      # temp files
+      .swp
+
+      # other
+      *.log
+      *.retry
+      *.vmdk
+      .vscode
+      .DS_Store
+      .private
+      .prv
+      .retry
+      .vagrant
+      .vault
+      .vagrant/
+      tests/roles/*
+      tests/inventory
+      !tests/roles/vault
+    dest: "/home/{{ lookup('env','USER') }}/.gitignore"
+
+- name: Git | Configure git settings
+  become: false
+  git_config:
+    name:  "{{ item.name }}"
+    scope: "{{ item.scope }}"
+    value: "{{ item.value }}"
+  with_items:
+  - name:  core.excludesfile
+    scope: global
+    value: "~/.gitignore"
+  - name:  blame.coloring
+    scope: global
+    value: highlightRecent
+  - name:  color.blame.highlightRecent
+    scope: global
+    value: blue,12 month ago,white,1 month ago,red
+  - name: user.name
+    scope: global
+    value: Sergey Kurbatov
+  - name: user.email
+    scope: global
+    value: skurbatov@getmobit.ru

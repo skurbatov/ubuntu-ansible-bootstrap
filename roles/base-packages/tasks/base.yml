@@ -1,0 +1,10 @@
+---
+- name: Base | install sysutils
+  apt:
+    name:
+      - htop
+      - iotop
+      - remmina
+      - tigervnc-server
+      - tmate #remote ssh share
+    state: latest

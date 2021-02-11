@@ -1,10 +1,6 @@
 ---
-# ansible-playbook -vv -K playbook.yaml --diff --tags vbox
-- name: main
-  hosts: 127.0.0.1
-  connection: local
-  diff: yes
-  become: yes
+- hosts: all
+  become: true
   roles:
     - role: base-packages
       tags: [base]

@@ -1,0 +1,29 @@
+---
+- name: obsidian | Create bin dir
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ lookup('env','HOME') }}/.local/bin/"
+    - "{{ lookup('env','HOME') }}/Desktop/"
+
+- name: obsidian | Install obsidian
+  get_url:
+    url: "https://github.com/obsidianmd/obsidian-releases/releases/download/v{{ obsidian_ver }}/Obsidian-{{ obsidian_ver }}.AppImage"
+    dest: "{{ lookup('env','HOME') }}/.local/bin/obsidian"
+    mode: 0755
+
+- name: obsidian | Create obsidian shortcut
+  # become: true
+  copy:
+    content: |
+      #!/usr/bin/env xdg-open
+      [Desktop Entry]
+      Type=Application
+      Terminal=false
+      Encoding=UTF-8
+      Exec="{{ lookup('env','HOME') }}/.local/bin/obsidian"
+      Name=Obsidian
+      Comment=Obsidian.md application
+    dest: "{{ lookup('env','HOME') }}/Desktop/obsidian.desktop"
+    mode: 0755

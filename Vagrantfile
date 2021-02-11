@@ -10,13 +10,14 @@ Vagrant.configure("2") do |config|
     end
   
     config.vm.provision "shell", inline: <<-SHELL
-      sudo apt-get install ubuntu-desktop
+      sudo apt-get update && sudo apt-get install ubuntu-desktop python3 -y
     SHELL
   
-    config.vm.provision "ansible_local" do |ansible|
+    config.vm.provision "ansible" do |ansible|
       ansible.verbose = "v"
-      ansible.galaxy_roles_path = "$(pwd)/roles/"
-      ansible.playbook = "$(pwd)/vagrant.yaml"
+      ansible.galaxy_role_file = "bootstrap/requirements.yml"
+      ansible.galaxy_roles_path = "bootstrap/roles/"
+      ansible.playbook = "bootstrap/vagrant.yaml"
       ansible.raw_arguments = ["--diff"]
     end
   end

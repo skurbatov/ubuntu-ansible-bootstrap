@@ -5,6 +5,16 @@
       - htop
       - iotop
       - remmina
-      - tigervnc-server
+      - tightvncserver
       - tmate #remote ssh share
+      - python3-pip
+      - fonts-powerline
+    update_cache: yes
     state: latest
+
+- name: Base | install text utility
+  snap:
+    name:
+      - sublime-text
+    state: present
+    classic: yes

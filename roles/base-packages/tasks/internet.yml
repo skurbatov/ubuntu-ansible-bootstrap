@@ -1,7 +1,13 @@
 ---
-- name: Internet | install sysinternet softutils
+- name: Internet | Install sysinternet softutils
   apt:
     name:
-    - chromium
-    - deluge
+      - chromium-browser
+      - deluge
+    state: present
+
+- name: Internet | Install span softutils
+  snap:
+    name:
+      - mailspring
     state: present

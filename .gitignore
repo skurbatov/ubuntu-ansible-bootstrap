@@ -1,2 +1,5 @@
 .zshrc_my
 .vagrant/
+roles/personal/*
+roles/ansible-role-oh-my-zsh/*
+bootstrap/roles/*

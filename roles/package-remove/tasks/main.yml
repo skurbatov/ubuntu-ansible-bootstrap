@@ -1,0 +1,9 @@
+---
+- name: package-remove | remove sysutils
+  apt:
+    name:
+      - thunderbird
+      - transmission
+      - rhythmbox
+    autoclean: yes
+    state: absent

@@ -1,0 +1,28 @@
+---
+- name: users-groups | Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
+
+- name: users-groups | Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: users-groups | Add sudoers users to wheel group
+  user:
+    name={{ lookup('env','USER') }}
+    groups=wheel
+    append=yes
+    state=present
+    createhome=yes
+    password={{ lookup('env','USERPASS') }}
+
+- name: users-groups | Set up authorized keys for the deployer user
+  authorized_key: user={{ lookup('env','USER') }} key="{{item}}"
+  with_file:
+    - /home/{{ lookup('env','USER') }}/.ssh/id_rsa.pub
+

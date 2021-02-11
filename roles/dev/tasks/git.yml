@@ -1,6 +1,6 @@
 ---
 - name: Git | Create global .gitignore
-  become: false
+  become_user: "{{ lookup('env','USER') }}"
   copy:
     content: |
       # temp files
@@ -24,7 +24,7 @@
     dest: "/home/{{ lookup('env','USER') }}/.gitignore"
 
 - name: Git | Configure git settings
-  become: false
+  become_user: "{{ lookup('env','USER') }}"
   git_config:
     name:  "{{ item.name }}"
     scope: "{{ item.scope }}"

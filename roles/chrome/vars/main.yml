@@ -1,0 +1,8 @@
+---
+chrome_repositories:
+  - type: 'deb [arch=amd64]'
+    url: 'http://dl.google.com/linux/chrome/deb/ stable'
+    component: main
+
+chrome_dependencies:
+  - google-chrome-stable

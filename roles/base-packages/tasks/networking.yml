@@ -3,21 +3,24 @@
   apt:
     name:
     - wireshark
-    - wireshark-cli
     state: latest
 
-- name: Network | Adding user to group
+- name: Networking | Adding group
+  group:
+    name: wireshark
+    state: present
+
+- name: Networking | Adding user to group
   user:
     name: "{{ lookup('env','USER') }}"
     groups: wireshark
     append: yes
 
-- name: Network | Install network utils
+- name: Networking | Install network utils
   apt:
     name:
     - iftop
     - ifstat
-    - bind-utils
     - iperf
     - ethtool
     - nmap

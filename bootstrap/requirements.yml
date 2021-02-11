@@ -1,0 +1,3 @@
+---
+- src: git@github.com:gantsign/ansible-role-oh-my-zsh.git
+  scm: git

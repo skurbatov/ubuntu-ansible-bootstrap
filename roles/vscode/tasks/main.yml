@@ -1,0 +1,19 @@
+---
+- name: VSCode | Install VSCode
+  block:
+    - name: Add gpg key
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        state: present
+    - name: Add repo
+      apt_repository:
+        repo: deb https://packages.microsoft.com/repos/vscode stable main
+        state: present
+    - name: Install VSCode package
+      apt:
+        name: code
+        state: present
+        update_cache: yes
+
+- name:
+  include: extensions.yml

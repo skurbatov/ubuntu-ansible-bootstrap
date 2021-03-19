@@ -24,6 +24,8 @@
       vars:
         - obsidian_ver: 0.10.11
       tags: [obsidian]
+    - role: vscode
+      tags: [vscode]
     - role: package-remove
       tags: [package-remove]
     - role: personal

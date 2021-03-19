@@ -1,0 +1,22 @@
+---
+- name: VSCode | install extensions
+  become: false
+  become_user: "{{ lookup('env', 'USER') }}"
+  shell: |
+    code --install-extension {{ item }} --force
+  with_items:
+    - eighthundreds.vscode-drawio
+    - bbenoist.vagrant
+    - 4ops.terraform
+    - kelvin.vscode-sshfs
+    - ms-vscode-remote.remote-containers
+    - bbenoist.qml
+    - ms-python.python
+    - ms-python.vscode-pylance
+    - haaaad.ansible
+    - ms-azuretools.vscode-docker
+    - jdinhlife.gruvbox
+    - 4ops.packer
+    - owenfarrell.vscode-vault
+    - dhoeric.ansible-vault
+    - ms-vscode.powershell

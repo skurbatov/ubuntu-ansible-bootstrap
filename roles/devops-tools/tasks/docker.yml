@@ -1,0 +1,26 @@
+---
+- name: docker | Install gpg key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    keyring: present
+
+- name: docker | Add apt repository for Docker
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: docker | Install Docker
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+
+- name: docker | adding existing user "{{ lookup('env','USER') }}" to group docker
+  user:
+    name: "{{ lookup('env','USER') }}"
+    groups: docker
+    append: true

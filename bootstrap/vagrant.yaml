@@ -26,6 +26,11 @@
       tags: [obsidian]
     - role: vscode
       tags: [vscode]
+    - role: devops-tools
+      vars:
+        terraform_ver: 0.12.20
+        k9s_ver: v0.21.7
+        helm_ver: v3.3.1
     - role: package-remove
       tags: [package-remove]
     - role: personal

@@ -1,0 +1,27 @@
+---
+- name: hashicorp | Install gpg key
+  apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+
+- name: hashicorp | Add apt repository for Hashicorp packages
+  apt_repository:
+    repo: deb https://apt.releases.hashicorp.com focal main
+    state: present
+
+- name: hashicorp | Install Hashicorp packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - packer
+    - vagrant
+    - vault
+
+- name: hashicorp | Install Terraform
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/{{ terraform_ver }}/terraform_{{ terraform_ver }}_linux_amd64.zip
+    dest: /usr/local/sbin
+    remote_src: yes
+    mode: 0755

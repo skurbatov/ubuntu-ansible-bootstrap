@@ -1,0 +1,12 @@
+---
+- name:
+  include: docker.yml
+  tags: [docker]
+
+- name:
+  include: hashicorp.yml
+  tags: [hashicorp]
+
+- name:
+  include: k8s.yml
+  tags: [k8s]

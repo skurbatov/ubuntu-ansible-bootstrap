@@ -1,12 +1,13 @@
 ---
-- name: docker | Install gpg key
+- name: docker | Add docker repo
+  copy:
+    dest: /etc/apt/sources.list.d/docker.list
+    content: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+
+- name: docker | Add docker repo key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
-    keyring: present
-
-- name: docker | Add apt repository for Docker
-  apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    id: 0EBFCD88
     state: present
 
 - name: docker | Install Docker
@@ -14,7 +15,7 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
-  with_items:
+  loop:
     - docker-ce
     - docker-ce-cli
     - containerd.io

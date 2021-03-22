@@ -1,12 +1,12 @@
 ---
 - name: K8s | Install gpg key
   apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg.asc
     state: present
 
 - name: K8s | Add apt repository for kubectl
   apt_repository:
-    repo: deb deb https://apt.kubernetes.io/ kubernetes-focal main
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
     state: present
 
 - name: K8s | Install kubectl
@@ -14,7 +14,7 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
-  with_items:
+  loop:
     - kubectl
 
 - name: K8s | Install minkube

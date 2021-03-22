@@ -1,0 +1,24 @@
+---
+- name: rhel | Add ansible repository
+  apt_repository:
+    repo: 'ppa:ansible/ansible'
+
+- name: rhel | Install Ansible
+  apt:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - ansible
+
+- name: rhel | Install Molecule
+  pip:
+    executable: pip3
+    name:
+      - molecule
+
+- name: rhel | Install Ansible linters
+  pip:
+    executable: pip3
+    name:
+      - ansible-lint
+      - yamllint

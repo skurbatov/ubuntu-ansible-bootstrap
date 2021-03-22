@@ -14,7 +14,7 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
-  with_items:
+  loop:
     - packer
     - vagrant
     - vault
@@ -22,6 +22,6 @@
 - name: hashicorp | Install Terraform
   unarchive:
     src: https://releases.hashicorp.com/terraform/{{ terraform_ver }}/terraform_{{ terraform_ver }}_linux_amd64.zip
-    dest: /usr/local/sbin
+    dest: /usr/local/bin
     remote_src: yes
     mode: 0755

@@ -8,5 +8,9 @@
   tags: [hashicorp]
 
 - name:
+  include: rhel.yml
+  tags: [rhel]
+
+- name:
   include: k8s.yml
   tags: [k8s]

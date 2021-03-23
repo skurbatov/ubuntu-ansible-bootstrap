@@ -2,7 +2,7 @@
 - name: Networking | install packets
   apt:
     name:
-    - wireshark
+      - wireshark
     state: latest
 
 - name: Networking | Adding group
@@ -14,14 +14,14 @@
   user:
     name: "{{ lookup('env','USER') }}"
     groups: wireshark
-    append: yes
+    append: true
 
 - name: Networking | Install network utils
   apt:
     name:
-    - iftop
-    - ifstat
-    - iperf
-    - ethtool
-    - nmap
+      - iftop
+      - ifstat
+      - iperf
+      - ethtool
+      - nmap
     state: latest

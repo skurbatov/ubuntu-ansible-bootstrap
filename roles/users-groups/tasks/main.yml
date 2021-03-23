@@ -25,4 +25,3 @@
   authorized_key: user={{ lookup('env','USER') }} key="{{item}}"
   with_file:
     - /home/{{ lookup('env','USER') }}/.ssh/id_rsa.pub
-

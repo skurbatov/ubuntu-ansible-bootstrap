@@ -9,10 +9,10 @@
     mode: '0755'
     force: true
   with_items:
-  - { src: "cfssl-certinfo_{{ cfssl_ver }}_linux_amd64", dest: "cfssl-certinfo"}
-  - { src: "cfssl-bundle_{{ cfssl_ver }}_linux_amd64", dest: "cfssl-bundle"}
-  - { src: "cfssl-newkey_{{ cfssl_ver }}_linux_amd64", dest: "cfssl-newkey"}
-  - { src: "cfssljson_{{ cfssl_ver }}_linux_amd64", dest: "cfssljson"}
-  - { src: "cfssl_{{ cfssl_ver }}_linux_amd64", dest: "cfssl"}
-  - { src: "mkbundle_{{ cfssl_ver }}_linux_amd64", dest: "mkbundle"}
-  - { src: "multirootca_{{ cfssl_ver }}_linux_amd64", dest: "multirootca"}
+    - {src: "cfssl-certinfo_{{ cfssl_ver }}_linux_amd64", dest: "cfssl-certinfo"}
+    - {src: "cfssl-bundle_{{ cfssl_ver }}_linux_amd64", dest: "cfssl-bundle"}
+    - {src: "cfssl-newkey_{{ cfssl_ver }}_linux_amd64", dest: "cfssl-newkey"}
+    - {src: "cfssljson_{{ cfssl_ver }}_linux_amd64", dest: "cfssljson"}
+    - {src: "cfssl_{{ cfssl_ver }}_linux_amd64", dest: "cfssl"}
+    - {src: "mkbundle_{{ cfssl_ver }}_linux_amd64", dest: "mkbundle"}
+    - {src: "multirootca_{{ cfssl_ver }}_linux_amd64", dest: "multirootca"}

@@ -13,7 +13,7 @@
         state: present
         update_cache: true
       with_items: "{{ chrome_repositories }}"
-  
+
 - name: chrome | install dependencies
   apt:
     name: "{{ chrome_dependencies }}"
@@ -39,10 +39,10 @@
         state: directory
 
     # See https://developer.chrome.com/extensions/external_extensions#preferences
-    - name: chrome | Create Chrome JSON file to install extensions for all users
+    - name: chrome | Create Chrome JSON file to install extensions for all users (browsec, ublock)
       template:
         src: chrome-extensions.json.j2
         dest: "/usr/share/google-chrome/extensions/{{ item }}.json"
       with_items:
-        - cjpalhdlnbpafiamejdnhcphjbkeiagm # ublock
-        - omghfjlpggmjjaagoclmmobgdodcjboh # BrowSec
+        - cjpalhdlnbpafiamejdnhcphjbkeiagm
+        - omghfjlpggmjjaagoclmmobgdodcjboh

@@ -2,8 +2,8 @@
 - name: Dev | install dev tools
   apt:
     name:
-    - strace
-    - python3-virtualenv
+      - strace
+      - python3-virtualenv
     state: latest
 
 - name: Dev | CFSSL

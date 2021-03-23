@@ -1,0 +1,15 @@
+---
+ignore: |
+  /roles/ansible-role-oh-my-zsh/
+
+yaml-files:
+    - '*.yaml'
+    - '*.yml'
+    - '.yamllint'
+
+extends: default
+
+rules:
+    line-length:
+        max: 140
+        level: warning

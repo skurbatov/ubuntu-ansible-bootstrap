@@ -5,7 +5,7 @@
 
 - name: Copy wallpaper file
   become_user: "{{ lookup('env','USER') }}"
-  copy: 
+  copy:
     src: files/wallpaper.jpg
     dest: "{{ lookup('env','HOME') }}/.wallpaper.jpg"
     owner: "{{ lookup('env','USERNAME') }}"
@@ -14,4 +14,6 @@
 
 - name: Set GNOME wallpaper
   become_user: "{{ lookup('env','USER') }}"
-  dconf: key="/org/gnome/desktop/background/picture-uri" value="'file:///home/{{ lookup('env','USERNAME') }}/.wallpaper.jpg'"
+  dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "'file:///home/{{ lookup('env','USERNAME') }}/.wallpaper.jpg'"

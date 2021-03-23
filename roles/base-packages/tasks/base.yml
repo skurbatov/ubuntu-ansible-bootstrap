@@ -6,10 +6,10 @@
       - iotop
       - remmina
       - tightvncserver
-      - tmate #remote ssh share
+      - tmate
       - python3-pip
       - fonts-powerline
-    update_cache: yes
+    update_cache: true
     state: latest
 
 - name: Base | install text utility
@@ -17,4 +17,4 @@
     name:
       - sublime-text
     state: present
-    classic: yes
+    classic: true

@@ -5,5 +5,5 @@
       - thunderbird
       - transmission
       - rhythmbox
-    autoclean: yes
+    autoclean: true
     state: absent

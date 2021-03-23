@@ -3,8 +3,8 @@
 - name: main
   hosts: 127.0.0.1
   connection: local
-  diff: yes
-  become: yes
+  diff: true
+  become: true
   roles:
     - role: base-packages
       tags: [base]

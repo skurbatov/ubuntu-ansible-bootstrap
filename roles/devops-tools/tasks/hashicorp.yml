@@ -12,7 +12,7 @@
 - name: hashicorp | Install Hashicorp packages
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
     update_cache: true
   loop:
     - packer

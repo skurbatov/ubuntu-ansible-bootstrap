@@ -10,7 +10,7 @@
       - python3-pip
       - fonts-powerline
     update_cache: true
-    state: latest
+    state: present
 
 - name: Base | install text utility
   snap:

@@ -1,16 +1,16 @@
 ---
-- name:
+- name: Install Docker
   include: docker.yml
   tags: [docker]
 
-- name:
+- name: Install Hashicorp packages
   include: hashicorp.yml
   tags: [hashicorp]
 
-- name:
+- name: Install RHel packages
   include: rhel.yml
   tags: [rhel]
 
-- name:
+- name: Install Kubernetes packages
   include: k8s.yml
   tags: [k8s]

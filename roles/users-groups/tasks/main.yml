@@ -22,6 +22,6 @@
     password={{ lookup('env','USERPASS') }}
 
 - name: users-groups | Set up authorized keys for the deployer user
-  authorized_key: user={{ lookup('env','USER') }} key="{{item}}"
+  authorized_key: user={{ lookup('env','USER') }} key="{{ item }}"
   with_file:
     - /home/{{ lookup('env','USER') }}/.ssh/id_rsa.pub

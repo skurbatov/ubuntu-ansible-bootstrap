@@ -1,9 +1,9 @@
 ---
-- name:
+- name: Install base packages
   include: base.yml
 
-- name:
+- name: Install packages for network
   include: networking.yml
 
-- name:
+- name: Install some packages for internet browsing
   include: internet.yml

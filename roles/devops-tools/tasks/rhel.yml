@@ -6,7 +6,7 @@
 - name: rhel | Install Ansible
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
   loop:
     - ansible
 

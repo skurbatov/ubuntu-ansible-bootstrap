@@ -19,3 +19,4 @@
     - owenfarrell.vscode-vault
     - dhoeric.ansible-vault
     - ms-vscode.powershell
+  tags: skip_ansible_lint

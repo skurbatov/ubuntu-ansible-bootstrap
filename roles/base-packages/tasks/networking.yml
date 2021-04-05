@@ -3,7 +3,7 @@
   apt:
     name:
       - wireshark
-    state: latest
+    state: present
 
 - name: Networking | Adding group
   group:
@@ -24,4 +24,4 @@
       - iperf
       - ethtool
       - nmap
-    state: latest
+    state: present

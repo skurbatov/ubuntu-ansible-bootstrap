@@ -13,7 +13,7 @@
 - name: docker | Install Docker
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
     update_cache: true
   loop:
     - docker-ce

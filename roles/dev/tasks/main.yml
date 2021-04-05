@@ -4,7 +4,7 @@
     name:
       - strace
       - python3-virtualenv
-    state: latest
+    state: present
 
 - name: Dev | CFSSL
   include: cfssl.yml

@@ -28,6 +28,8 @@
       vars:
         - obsidian_ver: 0.10.11
       tags: [obsidian]
+    - role: virtual-box
+      tags: [virtual-box]
     - role: vscode
       tags: [vscode]
     - role: devops-tools
@@ -38,3 +40,5 @@
     - role: package-remove
       tags: [package-remove]
     - role: personal
+      vars:
+        keyboard_layout: us,ru

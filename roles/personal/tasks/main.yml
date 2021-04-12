@@ -1,4 +1,7 @@
 ---
+- name: Add tasks with keyboard konfigurations
+  include: keyboard.yml
+
 - name: Install python-psutil package
   apt:
     name: python3-psutil

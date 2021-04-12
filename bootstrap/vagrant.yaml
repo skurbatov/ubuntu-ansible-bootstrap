@@ -36,3 +36,5 @@
     - role: package-remove
       tags: [package-remove]
     - role: personal
+      vars:
+        keyboard_layout: us,ru

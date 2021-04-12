@@ -1,7 +1,12 @@
 ---
-- name: virtual-box | Install oracle gpg key
+- name: virtual-box | Install oracle gpg key 1
   apt_key:
     url: https://www.virtualbox.org/download/oracle_vbox.asc
+    state: present
+
+- name: virtual-box | Install oracle gpg key 2
+  apt_key:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
     state: present
 
 - name: virtual-box | Add apt repository for VirtualBox

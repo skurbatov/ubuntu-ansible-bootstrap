@@ -1,0 +1,6 @@
+---
+keyboard_model: pc105
+keyboard_layout: us
+keyboard_variant: ''
+keyboard_options: 'grp_led:scroll'
+keyboard_backspace: guess

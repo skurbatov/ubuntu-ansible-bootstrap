@@ -1,0 +1,18 @@
+---
+- name: podman | Add podman repo
+  copy:
+    dest: /etc/apt/sources.list.d/podman.list
+    content: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /
+
+- name: podman | Add podman repo key
+  apt_key:
+    url: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/Release.key
+    state: present
+
+- name: podman | Install Podman
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - podman

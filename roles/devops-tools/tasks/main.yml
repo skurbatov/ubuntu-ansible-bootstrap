@@ -3,6 +3,10 @@
   include: docker.yml
   tags: [docker]
 
+- name: Install Podman
+  include: podman.yml
+  tags: [podman]
+
 - name: Install Hashicorp packages
   include: hashicorp.yml
   tags: [hashicorp]

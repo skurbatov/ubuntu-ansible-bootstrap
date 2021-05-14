@@ -39,3 +39,10 @@
     extra_opts:
       - --strip-components=1
       - linux-amd64/helm
+
+- name: K8s | Install Kompose
+  get_url:
+    url: https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64
+    force: true
+    dest: "/usr/local/bin/kompose"
+    mode: 0755
